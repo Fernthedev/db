@@ -32,6 +32,7 @@ subprojects {
 
     dependencies {
         compileOnly group: 'org.jetbrains', name: 'annotations', version: '15.0'
+        compileOnly group: 'org.slf4j', name: 'slf4j-api', version: '1.7.30'
     }
 
     project.conf2ScopeMappings.addMapping(300, configurations.compileOnly, 'provided')

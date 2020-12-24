@@ -3,10 +3,7 @@ package co.aikar.idb;
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
 
-import java.sql.Connection;
-import java.sql.SQLException;
 import java.util.Map;
-import java.util.concurrent.TimeUnit;
 
 public class HikariPooledDatabase extends BaseDatabase {
     private final PooledDatabaseOptions poolOptions;

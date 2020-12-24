@@ -1,8 +1,8 @@
 package co.aikar.idb;
 
 import org.intellij.lang.annotations.Language;
+import org.slf4j.Logger;
 
-import java.io.IOException;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -10,8 +10,6 @@ import java.util.List;
 import java.util.concurrent.Callable;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.TimeUnit;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 public interface Database {
 
@@ -280,11 +278,11 @@ public interface Database {
     }
 
     default void logException(String message, Exception e) {
-        DB.logException(getLogger(), Level.SEVERE, message, e);
+        DB.logException(getLogger(), message, e);
     }
 
     default void logException(Exception e) {
-        DB.logException(getLogger(), Level.SEVERE, e.getMessage(), e);
+        DB.logException(getLogger(), e.getMessage(), e);
     }
 
 

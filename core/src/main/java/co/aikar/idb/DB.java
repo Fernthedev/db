@@ -24,14 +24,13 @@
 package co.aikar.idb;
 
 import org.intellij.lang.annotations.Language;
+import org.slf4j.Logger;
 
 import java.sql.SQLException;
 import java.util.List;
 import java.util.concurrent.Callable;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.TimeUnit;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import java.util.regex.Pattern;
 
 public final class DB {
@@ -209,14 +208,8 @@ public final class DB {
         globalDatabase.fatalError(e);
     }
 
-    public static void logException(Logger logger, Level logLevel, String message, Exception e) {
-        logger.log(logLevel, message);
-
-        if (e != null) {
-            for (String line : NEWLINE.split(ApacheCommonsExceptionUtil.getFullStackTrace(e))) {
-                logger.log(logLevel, line);
-            }
-        }
+    public static void logException(Logger logger, String message, Exception e) {
+        logger.error(message, e);
     }
 
 }

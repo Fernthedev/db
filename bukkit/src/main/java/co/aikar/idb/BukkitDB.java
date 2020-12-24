@@ -5,6 +5,7 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.server.PluginDisableEvent;
 import org.bukkit.plugin.Plugin;
+import org.slf4j.LoggerFactory;
 
 public class BukkitDB {
 
@@ -12,7 +13,7 @@ public class BukkitDB {
         DatabaseOptions options = DatabaseOptions
                 .builder()
                 .poolName(plugin.getDescription().getName() + " DB")
-                .logger(plugin.getLogger())
+                .logger(LoggerFactory.getLogger(plugin.getLogger().getName()))
                 .mysql(user, pass, db, hostAndPort)
                 .build();
         PooledDatabaseOptions poolOptions = PooledDatabaseOptions
