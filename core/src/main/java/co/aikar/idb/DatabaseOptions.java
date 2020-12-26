@@ -38,7 +38,7 @@ public class DatabaseOptions {
     /**
      * For Async queries, maximum threads in the pool to use.
      */
-    @Builder.Default int maxAsyncThreads = Runtime.getRuntime().availableProcessors();
+    @Builder.Default int maxAsyncThreads = Math.min(Runtime.getRuntime().availableProcessors(), 4);
     @Builder.Default int asyncThreadTimeout = 60;
     @Builder.Default TimingsProvider timingsProvider = (name, parent) -> NULL_TIMING;
     @Builder.Default Consumer<Exception> onFatalError = DB::logException;
